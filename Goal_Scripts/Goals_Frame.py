@@ -16,10 +16,20 @@ class App(Frame):
         self._button2.grid(row=1, column=0)
 
     def read_file(self):
-        pass
+        self._read_data = open("main", "r")
+
+        for line in self._read_data:
+            print(line.strip())
+
+        self._read_data.close()
 
     def write_file(self):
-        pass
+        self._write_data = open("main", "a")
+
+        self._write_data.write("\n")
+        self._write_data.write("This is new written data for later on.")
+
+        self._write_data.close()
 
 app =App()
 app.master.title("Title")
