@@ -11,9 +11,11 @@ class App(Frame):
     def MM(self):
         self._button1 = Button(self, text="button1", command=self.read_file)
         self._button2 = Button(self, text="button2", command=self.write_file)
+        self._button3 = Button(self, text="New File", command=self.new_file)
 
         self._button1.grid(row=0, column=0)
         self._button2.grid(row=1, column=0)
+        self._button3.grid(row=3, column=0)
 
     def read_file(self):
         self._read_data = open("main", "r")
@@ -30,6 +32,12 @@ class App(Frame):
         self._write_data.write("This is new written data for later on.")
 
         self._write_data.close()
+
+    def new_file(self):
+        self._new_file = open("New File", "w")
+        self._new_file.write("This should be in the new file.")
+        self._new_file.close()
+
 
 app =App()
 app.master.title("Title")
